@@ -2,6 +2,7 @@
 
 Welcome to **Online Bazaar**!
 This is a full demo of a marketplace/directory with multiple pages, dashboards, and sample data. Everything is built with static **HTML/CSS/JS** and runs without any backend.
+
 ---
 ## ✨ Features
 
