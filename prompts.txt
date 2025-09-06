@@ -1,0 +1,468 @@
+Build a complete Farsi-first (RTL) website (with optional EN/LTR) that is a trusted directory + validation hub for online shops and small businesses, with an integrated AI Agent.
+
+⚠️ Important Requirement: Generate all project files, folders, tabs, and pages fully functional. Every page, route, and dashboard must work out-of-the-box with navigation, data flow, and placeholder data where real APIs aren’t yet connected.
+
+Core Users
+
+Business Owners / Vendors
+
+Register, verify, and get trust badges.
+
+Categorized by industry.
+
+Manage profile, products, delivery zones, payment methods.
+
+Vendor dashboard: analytics, promotions, AI insights.
+
+Clients / Shoppers
+
+Search, filter, and compare vendors.
+
+Conversational AI Agent for criteria-based recommendations.
+
+Bookmarks, reviews, alerts, explainable results.
+
+Shopper dashboard: favorites, history, review manager.
+
+AI Agent
+
+Conversational Farsi search: “بهترین فروشگاه کفش زنانه در تهران؟”
+
+Criteria weighting: budget, speed, warranty.
+
+Verification assistant for vendors (OCR, doc check).
+
+Review sentiment summaries + spam detection.
+
+Policy/FAQ RAG + dispute ticket helper.
+
+Proactive vendor tips.
+
+Optional multichannel (WhatsApp/Telegram bot).
+
+Required Pages / Tabs (All Must Be Functional)
+
+Public Pages
+
+Landing page (hero search, categories, top vendors).
+
+Search/results page with filters, sorting, map view.
+
+Vendor profile page with rating, reviews, AI summary.
+
+Compare page (side-by-side businesses).
+
+Categories listing pages (with SEO-friendly slugs).
+
+About us / FAQ / Policies.
+
+Vendor Side
+
+Onboarding page (AI-guided verification).
+
+Vendor dashboard:
+
+Profile manager
+
+Product manager
+
+Promotions & deals
+
+Analytics (with AI tips)
+
+Reviews/feedback
+
+Shopper Side
+
+Shopper dashboard:
+
+Saved vendors
+
+Alerts & notifications
+
+Purchase history (placeholder schema)
+
+Review manager
+
+AI Agent
+
+Persistent chat panel, available on all pages.
+
+Explains recommendations with “Why this?”.
+
+Admin Panel
+
+Verification approvals & queue.
+
+Category manager.
+
+Review moderation.
+
+Vendor management.
+
+Site stats overview.
+
+Must-Haves
+
+Farsi-first RTL UI, toggle to EN (LTR).
+
+Mobile-first responsive.
+
+Ratings/reviews with moderation & anti-spam.
+
+Business verification badges.
+
+Fully wired navigation (header, sidebar, footer).
+
+Structured data + SEO.
+
+Privacy, audit logs, accessibility compliance.
+
+Every tab/page working with routes, placeholders, and example data.
+
+Deliverables
+
+Full project structure (pages, components, layouts, contexts).
+
+All tabs/pages functional: vendor side, shopper side, admin panel.
+
+Navigation fully linked (sidebar, header).
+
+AI Agent integrated globally.
+
+Responsive across devices.
+
+Out-of-the-box buildable project with no missing files.Project Spec (generate exactly)
+Tech
+
+Next.js (App Router) + TypeScript
+
+Tailwind CSS (RTL ready)
+
+shadcn/ui + lucide-react
+
+Zustand (or Context) for global UI state
+
+Simple in-repo JSON “db” for placeholders (no external DB)
+
+Folder Tree/app
+  /api
+    /auth/route.ts                  # mock login/logout
+    /search/route.ts                # search businesses
+    /vendors/route.ts               # list/create vendors
+    /vendors/[id]/route.ts          # read/update vendor
+    /reviews/route.ts               # create/list reviews
+    /verify/route.ts                # vendor verification OCR mock
+    /recommend/route.ts             # AI-like ranking mock
+    /disputes/route.ts              # dispute helper mock
+  /(public)
+    /page.tsx                       # Landing (hero, categories, top vendors)
+    /categories/page.tsx            # All categories grid
+    /search/page.tsx                # Results with filters
+    /compare/page.tsx               # Side-by-side compare
+    /faq/page.tsx
+    /policies/page.tsx
+    /vendor/[id]/page.tsx           # Public vendor profile (reviews, badges)
+  /(shopper)
+    /dashboard/page.tsx             # Saved vendors, alerts, history, reviews
+  /(vendor)
+    /onboarding/page.tsx            # AI-guided verification
+    /dashboard/page.tsx             # KPIs, AI tips
+    /profile/page.tsx               # Business info editor
+    /products/page.tsx              # Product manager
+    /promotions/page.tsx            # Deals, coupons
+    /analytics/page.tsx             # Traffic, CTR, conversions
+    /reviews/page.tsx               # Reply/moderation
+  /(admin)
+    /dashboard/page.tsx
+    /verifications/page.tsx         # Approvals queue
+    /categories/page.tsx            # Category manager
+    /vendors/page.tsx               # Vendor registry
+    /reviews/page.tsx               # Review moderation
+  /layout.tsx
+  /globals.css
+  /rtl.css                          # adds `direction: rtl` when fa is active
+  /providers.tsx                    # Theme/i18n/state providers
+/components
+  /ai/AgentPanel.tsx                # persistent chat panel
+  /ai/CriteriaChips.tsx             # ارزانتر/ارسال سریع/ضمانت …
+  /cards/VendorCard.tsx
+  /cards/CategoryCard.tsx
+  /forms/VendorForm.tsx
+  /forms/ProductForm.tsx
+  /forms/ReviewForm.tsx
+  /filters/SearchFilters.tsx
+  /layout/AppHeader.tsx
+  /layout/AppSidebar.tsx
+  /layout/AppFooter.tsx
+  /ui/*                             # shadcn re-exports
+/contexts
+  /i18n-context.tsx                 # fa/en + RTL toggle
+  /auth-context.tsx                 # mock auth + roles
+  /agent-context.tsx                # AI agent state
+/hooks
+  /useDebounce.ts
+  /usePersist.ts
+  /useRTL.ts
+/lib
+  /db.ts                            # in-memory JSON store & helpers
+  /ranker.ts                        # mock recommend logic (weights)
+  /sentiment.ts                     # mock review summary
+  /schema.ts                        # Zod schemas (Vendor, Review, Category)
+  /ocr.ts                           # fake OCR for verification
+  /constants.ts                     # categories, cities, badges
+  /i18n.ts                          # dictionary loader
+  /seo.ts                           # metadata helpers
+/mock
+  /vendors.json
+  /reviews.json
+  /categories.json
+  /users.json
+/styles
+  /theme.css
+/types
+  /index.d.ts                       # Vendor, Review, User, Role enums
+/middleware.ts                      # locale (fa default), auth guards (mock)
+/README.md Key Requirements to Implement
+
+Everything functional out-of-the-box with placeholder data (read/write goes to /lib/db.ts which mutates in-memory objects).
+
+RTL by default (fa) with a top-bar toggle to English (LTR).
+
+Persistent AI Agent panel (bottom-right) that:
+
+Accepts Farsi questions (text/voice placeholder).
+
+Calls /api/recommend to return ranked vendors + “چرا این؟” explanations.
+
+Lets users apply Criteria Chips to re-rank (price, speed, rating, verified).
+
+Three roles: shopper, vendor, admin (mocked via /api/auth + context).
+
+Pages listed above must render lists, details, forms, and submit to API routes.
+
+Search page uses /api/search with filters (category, city, rating, price, verified).
+
+Vendor Onboarding uploads docs → calls /api/verify → returns fake badge tier.
+
+Reviews have anti-spam score and AI sentiment summary via /lib/sentiment.ts.
+
+Admin can approve verifications, edit categories, moderate reviews.
+
+SEO: category and city listing pages pre-render; structured data on vendor profile.
+
+Minimal File Stubs (representative examples)
+/lib/schema.ts (Zod) import { z } from "zod";
+
+export const Vendor = z.object({
+  id: z.string(),
+  name: z.string(),
+  slug: z.string(),
+  verified: z.enum(["none","bronze","silver","gold"]).default("none"),
+  rating: z.number().min(0).max(5).default(0),
+  ratingCount: z.number().default(0),
+  categories: z.array(z.string()),
+  city: z.string().optional(),
+  priceLevel: z.enum(["$","$$","$$$"]).default("$$"),
+  delivery: z.object({ sameDay: z.boolean(), nationwide: z.boolean() }),
+  payments: z.array(z.string()),
+  returns: z.object({ days: z.number().optional(), policy: z.string().optional() }),
+  description: z.string().optional(),
+  images: z.array(z.string()).default([]),
+  social: z.object({ instagram: z.string().optional(), web: z.string().optional() }),
+});
+
+export const Review = z.object({
+  id: z.string(),
+  vendorId: z.string(),
+  userId: z.string(),
+  rating: z.number().min(1).max(5),
+  text: z.string(),
+  createdAt: z.string(),
+  spamScore: z.number().min(0).max(1).default(0),
+  verifiedPurchase: z.boolean().default(false),
+});
+
+export type TVendor = z.infer<typeof Vendor>;
+export type TReview = z.infer<typeof Review>;
+/lib/db.ts (in-memory)import vendors from "@/mock/vendors.json";
+import reviews from "@/mock/reviews.json";
+import cats from "@/mock/categories.json";
+import users from "@/mock/users.json";
+import { Vendor, Review } from "./schema";
+
+export const db = {
+  vendors: [...vendors],
+  reviews: [...reviews],
+  categories: [...cats],
+  users: [...users],
+};
+
+export const listVendors = () => db.vendors;
+export const getVendor = (id: string) => db.vendors.find(v => v.id === id);
+export const saveVendor = (v: unknown) => {
+  const parsed = Vendor.parse(v);
+  const idx = db.vendors.findIndex(x => x.id === parsed.id);
+  if (idx >= 0) db.vendors[idx] = parsed; else db.vendors.push(parsed);
+  return parsed;
+};
+export const addReview = (r: unknown) => {
+  const parsed = Review.parse(r);
+  db.reviews.push(parsed);
+  return parsed;
+};
+/lib/ranker.ts (mock AI ranker)import { db } from "./db";
+
+export function rankVendors(q: string, weights: {price?:number;speed?:number;rating?:number;verified?:number} = {}) {
+  const { price=1, speed=1, rating=1.5, verified=1.5 } = weights;
+  return db.vendors
+    .map(v => {
+      const wRating = (v.rating/5) * rating;
+      const wVerified = (["none","bronze","silver","gold"].indexOf(v.verified)/3) * verified;
+      const wPrice = (v.priceLevel === "$" ? 1 : v.priceLevel === "$$" ? 0.7 : 0.4) * price;
+      const wSpeed = (v.delivery.sameDay ? 1 : 0.5) * speed;
+      const score = wRating + wVerified + wPrice + wSpeed;
+      const why = [
+        v.verified !== "none" && "کسب‌وکار تأییدشده",
+        v.rating >= 4 && "امتیاز بالا",
+        v.delivery.sameDay && "ارسال سریع",
+        v.priceLevel === "$" && "قیمت اقتصادی",
+      ].filter(Boolean) as string[];
+      return { ...v, _score: score, _why: why.slice(0,3) };
+    })
+    .sort((a,b)=> b._score - a._score);
+}
+/app/api/recommend/route.tsimport { NextResponse } from "next/server";
+import { rankVendors } from "@/lib/ranker";
+
+export async function POST(req: Request) {
+  const { query = "", weights = {} } = await req.json().catch(()=>({}));
+  const ranked = rankVendors(query, weights);
+  return NextResponse.json(ranked.map(({_score,_why, ...v}) => ({...v, why: _why})));
+}
+/components/ai/AgentPanel.tsx"use client";
+import { useState } from "react";
+import { CriteriaChips } from "./CriteriaChips";
+
+export default function AgentPanel() {
+  const [open, setOpen] = useState(true);
+  const [query, setQuery] = useState("");
+  const [results, setResults] = useState<any[]>([]);
+  const [weights, setWeights] = useState({ price:1, speed:1, rating:1.5, verified:1.5 });
+
+  async function ask() {
+    const res = await fetch("/api/recommend", { method:"POST", body: JSON.stringify({ query, weights }) });
+    setResults(await res.json());
+  }
+
+  return (
+    <div className={`fixed bottom-4 right-4 z-50 w-96 ${open? "" : "translate-y-[85%]"} transition`}>
+      <div className="rounded-2xl shadow-xl border bg-white dark:bg-neutral-900">
+        <div className="p-3 flex items-center justify-between">
+          <span className="font-medium">دستیار هوشمند خرید</span>
+          <button onClick={()=>setOpen(!open)} className="text-sm opacity-70">باز/بسته</button>
+        </div>
+        <div className="px-3 pb-2">
+          <input value={query} onChange={e=>setQuery(e.target.value)}
+            placeholder="مثلاً: کفش زنانه زیر ۳ میلیون با ارسال سریع در تهران"
+            className="w-full border rounded-lg px-3 py-2 text-sm"/>
+          <CriteriaChips weights={weights} onChange={setWeights}/>
+          <button onClick={ask} className="mt-2 w-full rounded-lg px-3 py-2 bg-black text-white text-sm">
+            پیشنهاد بده
+          </button>
+          {!!results.length && (
+            <ul className="mt-3 space-y-2 max-h-64 overflow-auto">
+              {results.map(r=>(
+                <li key={r.id} className="border rounded-lg p-2">
+                  <div className="flex items-center justify-between">
+                    <b>{r.name}</b>
+                    <span className="text-xs">{r.verified !== "none" ? "تأیید شده" : "—"}</span>
+                  </div>
+                  <p className="text-xs opacity-70">{r.city || "—"} • ⭐ {r.rating} • {r.priceLevel}</p>
+                  {!!r.why?.length && <p className="text-xs mt-1">چرا این؟ {r.why.join("، ")}</p>}
+                </li>
+              ))}
+            </ul>
+          )}
+        </div>
+      </div>
+    </div>
+  );
+}
+/app/(public)/search/page.tsx (uses filters)import SearchFilters from "@/components/filters/SearchFilters";
+import VendorCard from "@/components/cards/VendorCard";
+
+export default async function SearchPage({ searchParams }: any) {
+  const qs = new URLSearchParams(searchParams).toString();
+  const res = await fetch(`${process.env.NEXT_PUBLIC_BASE_URL || ""}/api/search?${qs}`, { cache: "no-store" });
+  const { items } = await res.json();
+
+  return (
+    <div className="container mx-auto py-6">
+      <SearchFilters />
+      <div className="grid md:grid-cols-2 lg:grid-cols-3 gap-4 mt-4">
+        {items.map((v: any) => <VendorCard key={v.id} vendor={v} />)}
+      </div>
+    </div>
+  )
+}
+/app/api/search/route.tsimport { NextResponse } from "next/server";
+import { db } from "@/lib/db";
+
+export async function GET(req: Request) {
+  const url = new URL(req.url);
+  const q = (url.searchParams.get("q") || "").toLowerCase();
+  const cat = url.searchParams.get("category");
+  const city = url.searchParams.get("city");
+  const verified = url.searchParams.get("verified") === "true";
+
+  let items = db.vendors.filter(v =>
+    (!q || v.name.toLowerCase().includes(q) || v.categories.some(c=>c.toLowerCase().includes(q))) &&
+    (!cat || v.categories.includes(cat)) &&
+    (!city || v.city === city) &&
+    (!verified || v.verified !== "none")
+  );
+
+  return NextResponse.json({ items });
+}
+/middleware.ts (locale defaults)import { NextResponse } from "next/server";
+import type { NextRequest } from "next/server";
+
+export function middleware(req: NextRequest) {
+  const res = NextResponse.next();
+  // Default language: fa (RTL). Could set a cookie or header if needed.
+  return res;
+}
+/mock/vendors.json (tiny sample)[
+  {
+    "id":"v1","name":"کفش نگین","slug":"negin-shoes","verified":"silver",
+    "rating":4.6,"ratingCount":128,"categories":["پوشاک","کفش"],
+    "city":"تهران","priceLevel":"$$","delivery":{"sameDay":true,"nationwide":true},
+    "payments":["card","online"],"returns":{"days":7},"description":"کالکشن کفش زنانه",
+    "images":[],"social":{"instagram":"negin.shop","web":""}
+  },
+  {
+    "id":"v2","name":"موبایل آراد","slug":"arad-mobile","verified":"gold",
+    "rating":4.2,"ratingCount":512,"categories":["موبایل","الکترونیک"],
+    "city":"شیراز","priceLevel":"$$$","delivery":{"sameDay":false,"nationwide":true},
+    "payments":["card"],"returns":{"days":14},"description":"فروش موبایل و لوازم جانبی",
+    "images":[],"social":{"instagram":"arad.mobile","web":""}
+  }
+]
+How to phrase it for Base44 / DeepSite (pasteable)
+
+Generate a Next.js (App Router) + TS + Tailwind project for a Farsi-first (RTL) directory/validation hub for online shops & SMBs, including a persistent AI Agent. Create the exact folder tree and files listed above, and make every page, tab, and route functional with placeholder data.
+
+Default language Farsi (RTL) with toggle to EN (LTR).
+
+Roles: shopper, vendor, admin (mock auth).
+
+Implement all API routes to read/write the in-memory /lib/db.ts.
+
+Search filters, vendor onboarding + verification (OCR mock), reviews with AI sentiment summary, admin approvals, explainable recommendations (“چرا این؟”).
+
+Include responsive layouts, header/sidebar/footer, SEO helpers, and category/city pages.
+
+Ship with the sample stubs shown (schemas, ranker, agent panel, search route, mock JSON).
+
+Result must run with pnpm i && pnpm dev without missing files.

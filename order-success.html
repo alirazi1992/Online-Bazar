@@ -1,0 +1,26 @@
+<!DOCTYPE html>
+<html lang="fa" dir="rtl">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>سفارش ثبت شد | بازار آنلاین</title>
+  <script src="https://cdn.tailwindcss.com"></script>
+  <link href="https://fonts.googleapis.com/css2?family=Vazirmatn:wght@200..900&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="./site.css">
+</head>
+<body class="bg-gray-50">
+  <main class="max-w-3xl mx-auto px-4 py-20 text-center">
+    <div class="text-5xl">🎉</div>
+    <h1 class="text-2xl font-bold mt-2">سفارش شما با موفقیت ثبت شد</h1>
+    <p class="text-gray-600 mt-2">شماره سفارش: <b id="order-id">—</b></p>
+    <div class="mt-6 flex justify-center gap-3">
+      <a href="./" class="btn-outline">بازگشت به خانه</a>
+      <a href="./client-dashboard.html" class="btn">رهگیری سفارش</a>
+    </div>
+  </main>
+  <script>
+    const oid = localStorage.getItem('lastOrderId') || 'ORD-DEMO';
+    document.getElementById('order-id').textContent = oid;
+  </script>
+</body>
+</html>

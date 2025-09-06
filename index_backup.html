@@ -1,0 +1,385 @@
+<!DOCTYPE html>
+<html lang="fa" dir="rtl">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>دایرکتوری هوشمند کسب و کارها</title>
+    <script src="https://cdn.tailwindcss.com"></script>
+    <script>
+        tailwind.config = {
+            theme: {
+                extend: {
+                    fontFamily: {
+                        sans: ['Vazirmatn', 'sans-serif'],
+                    },
+                }
+            }
+        }
+    </script>
+    <link href="https://fonts.googleapis.com/css2?family=Vazirmatn:wght@100;200;300;400;500;600;700;800;900&display=swap" rel="stylesheet">
+    <link href="https://unpkg.com/aos@2.3.1/dist/aos.css" rel="stylesheet">
+    <script src="https://unpkg.com/aos@2.3.1/dist/aos.js"></script>
+    <script src="https://unpkg.com/feather-icons"></script>
+    <script src="https://cdn.jsdelivr.net/npm/feather-icons/dist/feather.min.js"></script>
+    <style>
+        body {
+            font-family: 'Vazirmatn', sans-serif;
+        }
+        .rtl-support {
+            direction: rtl;
+            text-align: right;
+        }
+        .ltr-support {
+            direction: ltr;
+            text-align: left;
+        }
+    </style>
+</head>
+<body class="bg-gray-50 rtl-support">
+    <div id="root"></div>
+    
+    <script>
+        // This would be replaced with React components in a real Next.js app
+        document.getElementById('root').innerHTML = `
+            <div class="min-h-screen flex flex-col">
+                <!-- Header -->
+                <header class="bg-white shadow-sm">
+                    <div class="container mx-auto px-4 py-3 flex items-center justify-between">
+                        <div class="flex items-center space-x-4 space-x-reverse">
+                            <div class="text-2xl font-bold text-indigo-600">بازار آنلاین</div>
+                            <nav class="hidden md:flex space-x-6 space-x-reverse">
+                                <a href="/" class="text-gray-700 hover:text-indigo-600">صفحه اصلی</a>
+                                <a href="/categories" class="text-gray-700 hover:text-indigo-600">دسته‌بندی‌ها</a>
+                                <a href="/search" class="text-gray-700 hover:text-indigo-600">جستجو</a>
+                                <a href="/faq" class="text-gray-700 hover:text-indigo-600">سوالات متداول</a>
+                            </nav>
+                        </div>
+                        <div class="flex items-center space-x-3 space-x-reverse">
+                            <button class="p-2 rounded-full hover:bg-gray-100">
+                                <i data-feather="search"></i>
+                            </button>
+                            <button class="p-2 rounded-full hover:bg-gray-100">
+                                <i data-feather="user"></i>
+                            </button>
+                            <button class="px-3 py-1 bg-indigo-600 text-white rounded-md text-sm hover:bg-indigo-700">
+                                ثبت کسب و کار
+                            </button>
+                            <button class="p-2 rounded-full hover:bg-gray-100" id="lang-toggle">
+                                EN
+                            </button>
+                        </div>
+                    </div>
+                </header>
+
+                <!-- Hero Section -->
+                <section class="bg-gradient-to-r from-indigo-500 to-purple-600 text-white py-16">
+                    <div class="container mx-auto px-4 text-center">
+                        <h1 class="text-4xl md:text-5xl font-bold mb-6">دایرکتوری هوشمند کسب و کارهای آنلاین</h1>
+                        <p class="text-xl mb-8 max-w-2xl mx-auto">کسب و کارهای معتبر را پیدا کنید، مقایسه کنید و با اطمینان خرید کنید</p>
+                        
+                        <div class="max-w-2xl mx-auto bg-white rounded-lg overflow-hidden shadow-lg">
+                            <div class="flex">
+                                <input type="text" placeholder="چه کسب و کاری را جستجو می‌کنید؟" class="flex-grow px-4 py-3 text-gray-800 focus:outline-none">
+                                <button class="bg-indigo-600 px-6 py-3 text-white hover:bg-indigo-700">
+                                    <i data-feather="search" class="ml-1"></i>
+                                    جستجو
+                                </button>
+                            </div>
+                        </div>
+                    </div>
+                </section>
+
+                <!-- Categories -->
+                <section class="py-12">
+                    <div class="container mx-auto px-4">
+                        <h2 class="text-2xl font-bold mb-8 text-center">دسته‌بندی‌های محبوب</h2>
+                        
+                        <div class="grid grid-cols-2 md:grid-cols-4 lg:grid-cols-6 gap-4">
+                            <a href="/categories/پوشاک" class="bg-white rounded-lg shadow-sm p-4 text-center hover:shadow-md transition-shadow">
+                                <div class="bg-indigo-50 rounded-full p-3 inline-block mb-2">
+                                    <i data-feather="shopping-bag" class="text-indigo-600"></i>
+                                </div>
+                                <h3 class="font-medium">پوشاک</h3>
+                            </a>
+                            <a href="/categories/موبایل" class="bg-white rounded-lg shadow-sm p-4 text-center hover:shadow-md transition-shadow">
+                                <div class="bg-indigo-50 rounded-full p-3 inline-block mb-2">
+                                    <i data-feather="smartphone" class="text-indigo-600"></i>
+                                </div>
+                                <h3 class="font-medium">موبایل</h3>
+                            </a>
+                            <a href="/categories/خوراکی" class="bg-white rounded-lg shadow-sm p-4 text-center hover:shadow-md transition-shadow">
+                                <div class="bg-indigo-50 rounded-full p-3 inline-block mb-2">
+                                    <i data-feather="coffee" class="text-indigo-600"></i>
+                                </div>
+                                <h3 class="font-medium">خوراکی</h3>
+                            </a>
+                            <a href="/categories/آرایشی" class="bg-white rounded-lg shadow-sm p-4 text-center hover:shadow-md transition-shadow">
+                                <div class="bg-indigo-50 rounded-full p-3 inline-block mb-2">
+                                    <i data-feather="scissors" class="text-indigo-600"></i>
+                                </div>
+                                <h3 class="font-medium">آرایشی</h3>
+                            </a>
+                            <a href="/categories/خانه" class="bg-white rounded-lg shadow-sm p-4 text-center hover:shadow-md transition-shadow">
+                                <div class="bg-indigo-50 rounded-full p-3 inline-block mb-2">
+                                    <i data-feather="home" class="text-indigo-600"></i>
+                                </div>
+                                <h3 class="font-medium">خانه</h3>
+                            </a>
+                            <a href="/categories/کتاب" class="bg-white rounded-lg shadow-sm p-4 text-center hover:shadow-md transition-shadow">
+                                <div class="bg-indigo-50 rounded-full p-3 inline-block mb-2">
+                                    <i data-feather="book" class="text-indigo-600"></i>
+                                </div>
+                                <h3 class="font-medium">کتاب</h3>
+                            </a>
+                        </div>
+                    </div>
+                </section>
+
+                <!-- Top Verified Businesses -->
+                <section class="py-12 bg-gray-50">
+                    <div class="container mx-auto px-4">
+                        <div class="flex items-center justify-between mb-8">
+                            <h2 class="text-2xl font-bold">کسب و کارهای تایید شده</h2>
+                            <a href="/search?verified=true" class="text-indigo-600 hover:text-indigo-800 flex items-center">
+                                مشاهده همه
+                                <i data-feather="chevron-left" class="mr-1"></i>
+                            </a>
+                        </div>
+                        
+                        <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6">
+                            <!-- Business Card 1 -->
+                            <div class="bg-white rounded-lg shadow-sm overflow-hidden hover:shadow-md transition-shadow">
+                                <div class="relative">
+                                    <img src="http://static.photos/retail/640x360/1" alt="کسب و کار" class="w-full h-48 object-cover">
+                                    <div class="absolute top-2 left-2 bg-yellow-500 text-white text-xs px-2 py-1 rounded-full flex items-center">
+                                        <i data-feather="award" class="w-3 h-3 mr-1"></i>
+                                        طلایی
+                                    </div>
+                                </div>
+                                <div class="p-4">
+                                    <div class="flex justify-between items-start">
+                                        <h3 class="font-bold text-lg">کفش نگین</h3>
+                                        <div class="flex items-center bg-green-50 text-green-700 px-2 py-1 rounded-full text-xs">
+                                            <i data-feather="check-circle" class="w-3 h-3 mr-1"></i>
+                                            تایید شده
+                                        </div>
+                                    </div>
+                                    <p class="text-gray-600 text-sm mt-1">تهران • پوشاک</p>
+                                    <div class="flex items-center mt-2">
+                                        <div class="flex text-yellow-400">
+                                            <i data-feather="star" class="w-4 h-4 fill-current"></i>
+                                            <i data-feather="star" class="w-4 h-4 fill-current"></i>
+                                            <i data-feather="star" class="w-4 h-4 fill-current"></i>
+                                            <i data-feather="star" class="w-4 h-4 fill-current"></i>
+                                            <i data-feather="star" class="w-4 h-4 fill-current"></i>
+                                        </div>
+                                        <span class="text-gray-500 text-sm mr-1">(128 نظر)</span>
+                                    </div>
+                                    <div class="mt-4 pt-4 border-t border-gray-100 flex justify-between items-center">
+                                        <div>
+                                            <span class="text-sm text-gray-500">تحویل:</span>
+                                            <span class="text-sm font-medium mr-1">همان روز</span>
+                                        </div>
+                                        <a href="/vendor/کفش-نگین" class="text-indigo-600 text-sm hover:text-indigo-800 flex items-center">
+                                            مشاهده
+                                            <i data-feather="chevron-left" class="w-4 h-4 mr-1"></i>
+                                        </a>
+                                    </div>
+                                </div>
+                            </div>
+                            
+                            <!-- Business Card 2 -->
+                            <div class="bg-white rounded-lg shadow-sm overflow-hidden hover:shadow-md transition-shadow">
+                                <div class="relative">
+                                    <img src="http://static.photos/technology/640x360/2" alt="کسب و کار" class="w-full h-48 object-cover">
+                                    <div class="absolute top-2 left-2 bg-gray-400 text-white text-xs px-2 py-1 rounded-full flex items-center">
+                                        <i data-feather="award" class="w-3 h-3 mr-1"></i>
+                                        نقره‌ای
+                                    </div>
+                                </div>
+                                <div class="p-4">
+                                    <div class="flex justify-between items-start">
+                                        <h3 class="font-bold text-lg">موبایل آراد</h3>
+                                        <div class="flex items-center bg-green-50 text-green-700 px-2 py-1 rounded-full text-xs">
+                                            <i data-feather="check-circle" class="w-3 h-3 mr-1"></i>
+                                            تایید شده
+                                        </div>
+                                    </div>
+                                    <p class="text-gray-600 text-sm mt-1">شیراز • موبایل</p>
+                                    <div class="flex items-center mt-2">
+                                        <div class="flex text-yellow-400">
+                                            <i data-feather="star" class="w-4 h-4 fill-current"></i>
+                                            <i data-feather="star" class="w-4 h-4 fill-current"></i>
+                                            <i data-feather="star" class="w-4 h-4 fill-current"></i>
+                                            <i data-feather="star" class="w-4 h-4 fill-current"></i>
+                                            <i data-feather="star" class="w-4 h-4 fill-current text-gray-300"></i>
+                                        </div>
+                                        <span class="text-gray-500 text-sm mr-1">(512 نظر)</span>
+                                    </div>
+                                    <div class="mt-4 pt-4 border-t border-gray-100 flex justify-between items-center">
+                                        <div>
+                                            <span class="text-sm text-gray-500">تحویل:</span>
+                                            <span class="text-sm font-medium mr-1">2-3 روز کاری</span>
+                                        </div>
+                                        <a href="/vendor/موبایل-آراد" class="text-indigo-600 text-sm hover:text-indigo-800 flex items-center">
+                                            مشاهده
+                                            <i data-feather="chevron-left" class="w-4 h-4 mr-1"></i>
+                                        </a>
+                                    </div>
+                                </div>
+                            </div>
+                            
+                            <!-- Business Card 3 -->
+                            <div class="bg-white rounded-lg shadow-sm overflow-hidden hover:shadow-md transition-shadow">
+                                <div class="relative">
+                                    <img src="http://static.photos/food/640x360/3" alt="کسب و کار" class="w-full h-48 object-cover">
+                                    <div class="absolute top-2 left-2 bg-yellow-700 text-white text-xs px-2 py-1 rounded-full flex items-center">
+                                        <i data-feather="award" class="w-3 h-3 mr-1"></i>
+                                        برنزی
+                                    </div>
+                                </div>
+                                <div class="p-4">
+                                    <div class="flex justify-between items-start">
+                                        <h3 class="font-bold text-lg">کافه کتاب</h3>
+                                        <div class="flex items-center bg-green-50 text-green-700 px-2 py-1 rounded-full text-xs">
+                                            <i data-feather="check-circle" class="w-3 h-3 mr-1"></i>
+                                            تایید شده
+                                        </div>
+                                    </div>
+                                    <p class="text-gray-600 text-sm mt-1">اصفهان • کافه</p>
+                                    <div class="flex items-center mt-2">
+                                        <div class="flex text-yellow-400">
+                                            <i data-feather="star" class="w-4 h-4 fill-current"></i>
+                                            <i data-feather="star" class="w-4 h-4 fill-current"></i>
+                                            <i data-feather="star" class="w-4 h-4 fill-current"></i>
+                                            <i data-feather="star" class="w-4 h-4 fill-current"></i>
+                                            <i data-feather="star" class="w-4 h-4 fill-current text-gray-300"></i>
+                                        </div>
+                                        <span class="text-gray-500 text-sm mr-1">(87 نظر)</span>
+                                    </div>
+                                    <div class="mt-4 pt-4 border-t border-gray-100 flex justify-between items-center">
+                                        <div>
+                                            <span class="text-sm text-gray-500">تحویل:</span>
+                                            <span class="text-sm font-medium mr-1">1 ساعت</span>
+                                        </div>
+                                        <a href="/vendor/کافه-کتاب" class="text-indigo-600 text-sm hover:text-indigo-800 flex items-center">
+                                            مشاهده
+                                            <i data-feather="chevron-left" class="w-4 h-4 mr-1"></i>
+                                        </a>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </section>
+
+                <!-- How It Works -->
+                <section class="py-12">
+                    <div class="container mx-auto px-4">
+                        <h2 class="text-2xl font-bold mb-8 text-center">چگونه کار می‌کند؟</h2>
+                        
+                        <div class="grid grid-cols-1 md:grid-cols-3 gap-8">
+                            <div class="text-center">
+                                <div class="bg-indigo-100 w-16 h-16 rounded-full flex items-center justify-center mx-auto mb-4">
+                                    <i data-feather="search" class="text-indigo-600 w-6 h-6"></i>
+                                </div>
+                                <h3 class="font-bold text-lg mb-2">جستجو کنید</h3>
+                                <p class="text-gray-600">کسب و کار مورد نظر خود را بر اساس دسته‌بندی، موقعیت مکانی و معیارهای دیگر پیدا کنید</p>
+                            </div>
+                            <div class="text-center">
+                                <div class="bg-indigo-100 w-16 h-16 rounded-full flex items-center justify-center mx-auto mb-4">
+                                    <i data-feather="check-circle" class="text-indigo-600 w-6 h-6"></i>
+                                </div>
+                                <h3 class="font-bold text-lg mb-2">مقایسه کنید</h3>
+                                <p class="text-gray-600">کسب و کارهای تایید شده را با هم مقایسه کنید و بهترین گزینه را انتخاب نمایید</p>
+                            </div>
+                            <div class="text-center">
+                                <div class="bg-indigo-100 w-16 h-16 rounded-full flex items-center justify-center mx-auto mb-4">
+                                    <i data-feather="shopping-cart" class="text-indigo-600 w-6 h-6"></i>
+                                </div>
+                                <h3 class="font-bold text-lg mb-2">با اطمینان خرید کنید</h3>
+                                <p class="text-gray-600">از کسب و کارهای معتبر خرید کنید و از پشتیبانی ما بهره‌مند شوید</p>
+                            </div>
+                        </div>
+                    </div>
+                </section>
+
+                <!-- AI Assistant -->
+                <div class="fixed bottom-6 left-6 z-50">
+                    <button class="bg-indigo-600 text-white rounded-full p-4 shadow-lg hover:bg-indigo-700 transition-colors flex items-center">
+                        <i data-feather="message-square" class="w-6 h-6"></i>
+                    </button>
+                </div>
+
+                <!-- Footer -->
+                <footer class="bg-gray-800 text-white py-8">
+                    <div class="container mx-auto px-4">
+                        <div class="grid grid-cols-1 md:grid-cols-4 gap-8">
+                            <div>
+                                <h3 class="font-bold text-lg mb-4">بازار آنلاین</h3>
+                                <p class="text-gray-400">دایرکتوری هوشمند کسب و کارهای آنلاین معتبر در ایران</p>
+                            </div>
+                            <div>
+                                <h3 class="font-bold text-lg mb-4">لینک‌های مفید</h3>
+                                <ul class="space-y-2">
+                                    <li><a href="/about" class="text-gray-400 hover:text-white">درباره ما</a></li>
+                                    <li><a href="/contact" class="text-gray-400 hover:text-white">تماس با ما</a></li>
+                                    <li><a href="/privacy" class="text-gray-400 hover:text-white">حریم خصوصی</a></li>
+                                    <li><a href="/terms" class="text-gray-400 hover:text-white">قوانین و مقررات</a></li>
+                                </ul>
+                            </div>
+                            <div>
+                                <h3 class="font-bold text-lg mb-4">راهنمایی</h3>
+                                <ul class="space-y-2">
+                                    <li><a href="/faq" class="text-gray-400 hover:text-white">سوالات متداول</a></li>
+                                    <li><a href="/how-it-works" class="text-gray-400 hover:text-white">چگونه کار می‌کند؟</a></li>
+                                    <li><a href="/verification" class="text-gray-400 hover:text-white">فرآیند تایید</a></li>
+                                    <li><a href="/pricing" class="text-gray-400 hover:text-white">تعرفه‌ها</a></li>
+                                </ul>
+                            </div>
+                            <div>
+                                <h3 class="font-bold text-lg mb-4">با ما در ارتباط باشید</h3>
+                                <div class="flex space-x-4 space-x-reverse mb-4">
+                                    <a href="#" class="text-gray-400 hover:text-white">
+                                        <i data-feather="instagram"></i>
+                                    </a>
+                                    <a href="#" class="text-gray-400 hover:text-white">
+                                        <i data-feather="telegram"></i>
+                                    </a>
+                                    <a href="#" class="text-gray-400 hover:text-white">
+                                        <i data-feather="twitter"></i>
+                                    </a>
+                                    <a href="#" class="text-gray-400 hover:text-white">
+                                        <i data-feather="linkedin"></i>
+                                    </a>
+                                </div>
+                                <p class="text-gray-400">
+                                    <i data-feather="mail" class="w-4 h-4 inline-block mr-1"></i>
+                                    info@bazaar-online.ir
+                                </p>
+                            </div>
+                        </div>
+                        <div class="border-t border-gray-700 mt-8 pt-8 text-center text-gray-400">
+                            <p>© ۱۴۰۲ بازار آنلاین. تمامی حقوق محفوظ است.</p>
+                        </div>
+                    </div>
+                </footer>
+            </div>
+        `;
+
+        // Initialize feather icons
+        feather.replace();
+        
+        // Initialize AOS animations
+        AOS.init();
+        
+        // Language toggle functionality
+        document.getElementById('lang-toggle').addEventListener('click', function() {
+            document.body.classList.toggle('rtl-support');
+            document.body.classList.toggle('ltr-support');
+            document.documentElement.lang = document.body.classList.contains('rtl-support') ? 'fa' : 'en';
+            this.textContent = document.body.classList.contains('rtl-support') ? 'EN' : 'FA';
+        });
+    </script>
+</body>
+</html>

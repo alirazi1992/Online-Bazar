@@ -1,0 +1,50 @@
+<!DOCTYPE html>
+<html lang="fa" dir="rtl">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>پنل فروشنده | بازار آنلاین</title>
+  <script src="https://cdn.tailwindcss.com"></script>
+  <link href="https://fonts.googleapis.com/css2?family=Vazirmatn:wght@200..900&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="./site.css">
+</head>
+<body class="bg-gray-50">
+  <header class="bg-white shadow-sm">
+    <div class="max-w-7xl mx-auto px-4 py-3 flex items-center justify-between">
+      <a href="./" class="text-2xl font-bold text-indigo-600">بازار آنلاین</a>
+      <nav id="site-nav" class="hidden md:flex gap-5">
+        <a class="nav-link" data-tab="home" href="./">خانه</a>
+        <a class="nav-link" data-tab="search" href="./search.html">جستجو</a>
+        <a class="nav-link" data-tab="categories" href="./categories.html">دسته‌بندی‌ها</a>
+        <a class="nav-link" data-tab="vendor" href="./vendor.html">پروفایل فروشنده</a>
+        <a class="nav-link" data-tab="client" href="./client-dashboard.html">پنل مشتری</a>
+        <a class="nav-link" data-tab="vendor-dash" href="./vendor-dashboard.html">پنل فروشنده</a>
+      </nav>
+    </div>
+  </header>
+
+  <main class="max-w-7xl mx-auto px-4 py-8">
+    <div class="flex items-center justify-between mb-6">
+      <h1 class="text-2xl font-bold">پنل فروشنده</h1>
+      <div class="flex gap-2">
+        <a href="./vendor-products.html" class="btn-outline">محصولات</a>
+        <a href="./vendor-orders.html" class="btn-outline">سفارش‌ها</a>
+        <a href="./vendor-finance.html" class="btn-outline">امور مالی</a>
+      </div>
+    </div>
+    <div class="grid sm:grid-cols-2 lg:grid-cols-4 gap-4 mb-6">
+      <div class="kpi"><div class="muted">فروش امروز</div><div id="kpi-today" class="kpi-num">—</div></div>
+      <div class="kpi"><div class="muted">سفارش‌های باز</div><div id="kpi-open-orders" class="kpi-num">—</div></div>
+      <div class="kpi"><div class="muted">میانگین سبد</div><div id="kpi-aov" class="kpi-num">—</div></div>
+      <div class="kpi"><div class="muted">نرخ مرجوعی</div><div id="kpi-returns" class="kpi-num">—</div></div>
+    </div>
+    <div class="grid md:grid-cols-3 gap-4">
+      <a href="./vendor-products.html" class="card hover:shadow"><b>افزودن محصول جدید</b><p class="muted mt-2">مدیریت موجودی، قیمت و تصاویر</p></a>
+      <a href="./vendor-orders.html" class="card hover:shadow"><b>تایید و ارسال سفارش‌ها</b><p class="muted mt-2">تغییر وضعیت سفارش و چاپ برچسب</p></a>
+      <a href="./vendor-finance.html" class="card hover:shadow"><b>بارگذاری رسید و امور مالی</b><p class="muted mt-2">پیگیری درآمد، تسویه و مالیات</p></a>
+    </div>
+  </main>
+
+  <script src="./app.js"></script>
+</body>
+</html>

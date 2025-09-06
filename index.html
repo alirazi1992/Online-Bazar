@@ -1,0 +1,63 @@
+<!DOCTYPE html>
+<html lang="fa" dir="rtl">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>بازار آنلاین</title>
+  <script src="https://cdn.tailwindcss.com"></script>
+  <link href="https://fonts.googleapis.com/css2?family=Vazirmatn:wght@200..900&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="./site.css">
+</head>
+<body class="bg-gray-50">
+  <header class="bg-white shadow-sm">
+    <div class="max-w-7xl mx-auto px-4 py-3 flex items-center justify-between">
+      <a href="./" class="text-2xl font-bold text-indigo-600">بازار آنلاین</a>
+      <nav id="site-nav" class="hidden md:flex gap-5">
+        <a class="nav-link" data-tab="home" href="./">خانه</a>
+        <a class="nav-link" data-tab="search" href="./search.html">جستجو</a>
+        <a class="nav-link" data-tab="categories" href="./categories.html">دسته‌بندی‌ها</a>
+        <a class="nav-link" data-tab="vendor" href="./vendor.html">پروفایل فروشنده</a>
+        <a class="nav-link" data-tab="client" href="./client-dashboard.html">پنل مشتری</a>
+        <a class="nav-link" data-tab="vendor-dash" href="./vendor-dashboard.html">پنل فروشنده</a>
+      </nav>
+    </div>
+  </header>
+
+  <section class="bg-gradient-to-b from-indigo-50 to-white border-b">
+    <div class="max-w-7xl mx-auto px-4 py-16 text-center">
+      <h1 class="text-4xl font-extrabold mb-4">به بازار آنلاین خوش آمدید</h1>
+      <p class="text-gray-600 max-w-2xl mx-auto">
+        فروشگاه‌ها را جستجو کنید، خرید کنید، و فروشگاه خودتان را مدیریت کنید.
+      </p>
+      <div class="mt-6 flex justify-center gap-3">
+        <a href="./search.html" class="btn">شروع جستجو</a>
+        <a href="./vendor-dashboard.html" class="btn-outline">ورود فروشنده</a>
+      </div>
+    </div>
+  </section>
+
+  <section class="max-w-7xl mx-auto px-4 py-12">
+    <h2 class="text-xl font-bold mb-3">فروشگاه‌های پیشنهادی</h2>
+    <div class="grid sm:grid-cols-2 lg:grid-cols-4 gap-4">
+      <a class="card hover:shadow" href="./shop.html?shop=negin-shoes">
+        <b>کفش نگین</b><div class="muted">مد و پوشاک • امتیاز ۴.۷</div>
+      </a>
+      <a class="card hover:shadow" href="./shop.html?shop=arad-mobile">
+        <b>موبایل آراد</b><div class="muted">کالای دیجیتال • ارسال سراسر ایران</div>
+      </a>
+      <a class="card hover:shadow" href="./shop.html?shop=ketab-cafe">
+        <b>کافه کتاب</b><div class="muted">فرهنگی و هنری • بسته‌بندی هدیه</div>
+      </a>
+      <a class="card hover:shadow" href="./shop.html?shop=homey">
+        <b>هومى هوم</b><div class="muted">خانه و آشپزخانه • مرجوعی ۱۴ روزه</div>
+      </a>
+    </div>
+  </section>
+
+  <footer class="bg-gray-900 text-white mt-10">
+    <div class="max-w-7xl mx-auto px-4 py-8 text-sm">© بازار آنلاین</div>
+  </footer>
+
+  <script src="./app.js"></script>
+</body>
+</html>

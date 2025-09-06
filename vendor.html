@@ -1,0 +1,51 @@
+<!DOCTYPE html>
+<html lang="fa" dir="rtl">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>پروفایل فروشنده | بازار آنلاین</title>
+  <script src="https://cdn.tailwindcss.com"></script>
+  <link href="https://fonts.googleapis.com/css2?family=Vazirmatn:wght@200..900&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="./site.css">
+</head>
+<body class="bg-gray-50">
+  <header class="bg-white shadow-sm">
+    <div class="max-w-7xl mx-auto px-4 py-3 flex items-center justify-between">
+      <a href="./" class="text-2xl font-bold text-indigo-600">بازار آنلاین</a>
+      <nav id="site-nav" class="hidden md:flex gap-5">
+        <a class="nav-link" data-tab="home" href="./">خانه</a>
+        <a class="nav-link" data-tab="search" href="./search.html">جستجو</a>
+        <a class="nav-link" data-tab="categories" href="./categories.html">دسته‌بندی‌ها</a>
+        <a class="nav-link" data-tab="vendor" href="./vendor.html">پروفایل فروشنده</a>
+        <a class="nav-link" data-tab="client" href="./client-dashboard.html">پنل مشتری</a>
+        <a class="nav-link" data-tab="vendor-dash" href="./vendor-dashboard.html">پنل فروشنده</a>
+      </nav>
+    </div>
+  </header>
+
+  <main class="max-w-7xl mx-auto px-4 py-10">
+    <h1 class="text-2xl font-bold mb-2">پروفایل فروشنده</h1>
+    <p class="text-gray-600 mb-6">ورود به فروشگاه اختصاصی و پنل مدیریت.</p>
+    <div class="grid md:grid-cols-3 gap-6">
+      <div class="md:col-span-2 card">
+        <h2 class="font-bold mb-2">محصولات محبوب</h2>
+        <div id="vendor-featured" class="grid sm:grid-cols-2 gap-4"></div>
+      </div>
+      <aside class="card">
+        <h3 class="font-bold mb-2">راه‌های ارتباطی</h3>
+        <ul id="vendor-contacts" class="text-sm text-gray-600 space-y-1"></ul>
+        <div class="flex gap-2 mt-4">
+          <a href="./shop.html?shop=negin-shoes" class="btn-outline">مشاهده فروشگاه</a>
+          <a href="./vendor-dashboard.html" class="btn-outline">ورود به پنل</a>
+        </div>
+      </aside>
+    </div>
+  </main>
+
+  <footer class="bg-gray-900 text-white mt-10">
+    <div class="max-w-7xl mx-auto px-4 py-8 text-sm">© بازار آنلاین</div>
+  </footer>
+
+  <script src="./app.js"></script>
+</body>
+</html>

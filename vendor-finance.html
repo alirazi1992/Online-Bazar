@@ -1,0 +1,64 @@
+<!DOCTYPE html>
+<html lang="fa" dir="rtl">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>امور مالی فروشنده | بازار آنلاین</title>
+  <script src="https://cdn.tailwindcss.com"></script>
+  <link href="https://fonts.googleapis.com/css2?family=Vazirmatn:wght@200..900&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="./site.css">
+</head>
+<body class="bg-gray-50">
+  <header class="bg-white shadow-sm">
+    <div class="max-w-7xl mx-auto px-4 py-3 flex items-center justify-between">
+      <a href="./" class="text-2xl font-bold text-indigo-600">بازار آنلاین</a>
+      <nav id="site-nav" class="hidden md:flex gap-5">
+        <a class="nav-link" data-tab="home" href="./">خانه</a>
+        <a class="nav-link" data-tab="search" href="./search.html">جستجو</a>
+        <a class="nav-link" data-tab="categories" href="./categories.html">دسته‌بندی‌ها</a>
+        <a class="nav-link" data-tab="vendor" href="./vendor.html">پروفایل فروشنده</a>
+        <a class="nav-link" data-tab="client" href="./client-dashboard.html">پنل مشتری</a>
+        <a class="nav-link" data-tab="vendor-dash" href="./vendor-dashboard.html">پنل فروشنده</a>
+      </nav>
+    </div>
+  </header>
+
+  <main class="max-w-7xl mx-auto px-4 py-8">
+    <div class="flex items-center justify-between mb-6">
+      <h1 class="text-2xl font-bold">امور مالی فروشنده</h1>
+      <button id="download-payouts" class="btn">دانلود گزارش</button>
+    </div>
+    <div class="grid md:grid-cols-3 gap-4 mb-6">
+      <div class="card md:col-span-2">
+        <h2 class="font-bold mb-2">فروش ۳۰ روز اخیر</h2>
+        <div id="chart-revenue" class="h-40 rounded-lg bg-gradient-to-b from-indigo-50 to-white border"></div>
+      </div>
+      <div class="card">
+        <h2 class="font-bold mb-2">تسویه‌ها</h2>
+        <ul id="payouts" class="text-sm space-y-2"></ul>
+      </div>
+    </div>
+    <div class="card">
+      <div class="flex items-center justify-between mb-3">
+        <h2 class="font-bold">بارگذاری رسید/فاکتور</h2>
+        <label class="inline-flex items-center gap-2 cursor-pointer">
+          <input id="receipt-file" type="file" class="hidden" accept="image/*,.pdf" />
+          <span class="btn-outline">انتخاب فایل</span>
+        </label>
+      </div>
+      <div class="overflow-x-auto">
+        <table class="w-full text-sm">
+          <thead><tr class="text-left text-gray-500"><th class="py-2">#</th><th class="py-2">تاریخ</th><th class="py-2">عنوان</th><th class="py-2">مبلغ</th><th class="py-2">فایل</th></tr></thead>
+          <tbody id="receipts-tbody"></tbody>
+        </table>
+      </div>
+    </div>
+  </main>
+
+  <footer class="bg-gray-900 text-white mt-10">
+    <div class="max-w-7xl mx-auto px-4 py-8 text-sm">© بازار آنلاین</div>
+  </footer>
+
+  <script src="./app.js"></script>
+</body>
+</html>

@@ -1,0 +1,61 @@
+<!DOCTYPE html>
+<html lang="fa" dir="rtl">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>مدیریت محصولات | بازار آنلاین</title>
+  <script src="https://cdn.tailwindcss.com"></script>
+  <link href="https://fonts.googleapis.com/css2?family=Vazirmatn:wght@200..900&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="./site.css">
+</head>
+<body class="bg-gray-50">
+  <header class="bg-white shadow-sm">
+    <div class="max-w-7xl mx-auto px-4 py-3 flex items-center justify-between">
+      <a href="./" class="text-2xl font-bold text-indigo-600">بازار آنلاین</a>
+      <nav id="site-nav" class="hidden md:flex gap-5">
+        <a class="nav-link" data-tab="home" href="./">خانه</a>
+        <a class="nav-link" data-tab="search" href="./search.html">جستجو</a>
+        <a class="nav-link" data-tab="categories" href="./categories.html">دسته‌بندی‌ها</a>
+        <a class="nav-link" data-tab="vendor" href="./vendor.html">پروفایل فروشنده</a>
+        <a class="nav-link" data-tab="client" href="./client-dashboard.html">پنل مشتری</a>
+        <a class="nav-link" data-tab="vendor-dash" href="./vendor-dashboard.html">پنل فروشنده</a>
+      </nav>
+    </div>
+  </header>
+
+  <main class="max-w-7xl mx-auto px-4 py-8">
+    <div class="flex items-center justify-between mb-6">
+      <h1 class="text-2xl font-bold">مدیریت محصولات</h1>
+      <button id="add-product" class="btn">افزودن محصول</button>
+    </div>
+    <div id="products-grid" class="grid md:grid-cols-2 lg:grid-cols-3 gap-4"></div>
+
+    <!-- Modal -->
+    <div id="product-modal" class="modal hidden">
+      <div class="modal-card">
+        <div class="flex items-center justify-between">
+          <b>محصول جدید</b>
+          <button id="close-product-modal" class="btn-ghost">✕</button>
+        </div>
+        <div class="grid grid-cols-2 gap-3 mt-3">
+          <input id="p-title" class="input col-span-2" placeholder="عنوان" />
+          <input id="p-price" class="input" placeholder="قیمت (تومان)" type="number" />
+          <input id="p-stock" class="input" placeholder="موجودی" type="number" />
+          <input id="p-image" class="input col-span-2" placeholder="آدرس تصویر (اختیاری)" />
+          <textarea id="p-desc" class="input col-span-2" placeholder="توضیحات"></textarea>
+        </div>
+        <div class="flex justify-end mt-4 gap-2">
+          <button id="save-product" class="btn">ذخیره</button>
+          <button id="cancel-product" class="btn-outline">انصراف</button>
+        </div>
+      </div>
+    </div>
+  </main>
+
+  <footer class="bg-gray-900 text-white mt-10">
+    <div class="max-w-7xl mx-auto px-4 py-8 text-sm">© بازار آنلاین</div>
+  </footer>
+
+  <script src="./app.js"></script>
+</body>
+</html>

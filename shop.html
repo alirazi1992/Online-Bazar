@@ -1,0 +1,93 @@
+<!DOCTYPE html>
+<html lang="fa" dir="rtl">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>فروشگاه | بازار آنلاین</title>
+  <script src="https://cdn.tailwindcss.com"></script>
+  <link href="https://fonts.googleapis.com/css2?family=Vazirmatn:wght@200..900&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="./site.css">
+</head>
+<body class="bg-gray-50">
+  <header class="bg-white shadow-sm">
+    <div class="max-w-7xl mx-auto px-4 py-3 flex items-center justify-between">
+      <a href="./" class="text-2xl font-bold text-indigo-600">بازار آنلاین</a>
+      <nav id="site-nav" class="hidden md:flex gap-5">
+        <a class="nav-link" data-tab="home" href="./">خانه</a>
+        <a class="nav-link" data-tab="search" href="./search.html">جستجو</a>
+        <a class="nav-link" data-tab="categories" href="./categories.html">دسته‌بندی‌ها</a>
+        <a class="nav-link" data-tab="vendor" href="./vendor.html">پروفایل فروشنده</a>
+        <a class="nav-link" data-tab="vendor-dash" href="./vendor-dashboard.html">پنل فروشنده</a>
+      </nav>
+    </div>
+  </header>
+
+  <section id="hero" class="bg-gradient-to-b from-indigo-50 to-white border-b">
+    <div class="max-w-7xl mx-auto px-4 py-10 grid md:grid-cols-3 gap-6">
+      <div class="md:col-span-2">
+        <div id="shop-category" class="text-sm text-indigo-700 mb-2">فروشگاه</div>
+        <h1 id="shop-name" class="text-3xl font-extrabold mb-2">—</h1>
+        <p id="shop-tagline" class="text-gray-600 mb-4">—</p>
+        <div class="flex flex-wrap gap-2 text-sm">
+          <span id="shop-rating" class="badge-yellow">امتیاز —</span>
+          <span id="shop-delivery" class="badge-blue">—</span>
+          <span id="shop-verified" class="badge-green hidden">تایید شده</span>
+        </div>
+        <div class="mt-6 flex gap-3">
+          <a href="#products" class="btn">مشاهده محصولات</a>
+          <a href="#contact" class="btn-outline">تماس با ما</a>
+        </div>
+      </div>
+      <div class="card"><div class="font-bold mb-2">اطلاعات فروشگاه</div><ul id="shop-info" class="text-sm text-gray-700 space-y-1"></ul></div>
+    </div>
+  </section>
+
+  <section id="products" class="max-w-7xl mx-auto px-4 py-10">
+    <div class="flex items-center justify-between mb-4">
+      <h2 class="text-2xl font-bold">محصولات</h2>
+      <div class="flex gap-2">
+        <input id="q" class="input" placeholder="جستجوی محصول..." />
+        <select id="sort" class="input">
+          <option value="popular">پرفروش</option>
+          <option value="price-asc">قیمت کم به زیاد</option>
+          <option value="price-desc">قیمت زیاد به کم</option>
+        </select>
+      </div>
+    </div>
+    <div id="grid" class="grid sm:grid-cols-2 lg:grid-cols-3 gap-4"></div>
+  </section>
+
+  <section id="about" class="max-w-7xl mx-auto px-4 py-8">
+    <div class="grid md:grid-cols-2 gap-6">
+      <div class="card"><h3 class="font-bold mb-2">درباره فروشگاه</h3><p id="shop-about" class="text-gray-600 text-sm">—</p></div>
+      <div class="card"><h3 class="font-bold mb-2">قوانین و شرایط</h3><ul id="shop-policies" class="text-gray-600 text-sm space-y-1"></ul></div>
+    </div>
+  </section>
+
+  <section id="reviews" class="max-w-7xl mx-auto px-4 py-8">
+    <h3 class="font-bold mb-3">نظرات مشتریان</h3>
+    <div id="reviews-list" class="grid md:grid-cols-2 gap-4"></div>
+  </section>
+
+  <section id="contact" class="max-w-7xl mx-auto px-4 py-8">
+    <div class="card">
+      <h3 class="font-bold mb-2">تماس با فروشگاه</h3>
+      <form id="contact-form" class="grid sm:grid-cols-2 gap-3">
+        <input required class="input" placeholder="نام شما" />
+        <input required type="email" class="input ltr-support" placeholder="ایمیل شما" />
+        <textarea required class="input col-span-2" placeholder="پیام"></textarea>
+        <button class="btn">ارسال</button>
+      </form>
+    </div>
+  </section>
+
+  <div id="cart-fab" class="fixed bottom-6 left-6">
+    <a href="./checkout.html" class="fab">
+      <span>سبد خرید</span>
+      <span id="cart-count" class="fab-badge">0</span>
+    </a>
+  </div>
+
+  <script src="./shop.js"></script>
+</body>
+</html>
