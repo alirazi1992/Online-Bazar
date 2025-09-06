@@ -28,6 +28,7 @@ This is a full demo of a marketplace/directory with multiple pages, dashboards, 
 ## 🗂 Folder Structure
 
 bazar-clean/
+
 ├── index.html
 
 ├── search.html
@@ -76,11 +77,11 @@ bazar-clean/
 
 - **shop.js**:
 
-      - Contains demo shop/product data
+   - Contains demo shop/product data
 
-      - Renders shop landing pages (`shop.html?shop=slug`)
+   - Renders shop landing pages (`shop.html?shop=slug`)
 
-      - Handles cart + checkout (LocalStorage)
+   - Handles cart + checkout (LocalStorage)
 ---
 
 ## 🧪 Sample Data
